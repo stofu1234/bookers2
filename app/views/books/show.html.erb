@@ -1,0 +1,53 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <!-- 左ペイン -->
+    <%= render 'layouts/left_pane', user: @book.user, book: @new_book %>
+    <!-- 右ペイン -->
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table table-hover table-inverse">
+        <!--
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+
+        </thead>
+        -->
+        <tbody>
+          <tr>
+            <th>
+              <%= attachment_image_tag @book, :profile_image, :fill, 40, 40, fallback: "no_image_small.jpg"%>
+            </th>
+            <th><%= link_to @book.title, book_path(@book.id) %></th>
+            <th><%= @book.body %></th>
+            <th>
+              <% if @book.user.present? && @book.user.id == current_user.id %>
+                <%= link_to 'Edit', edit_book_path(@book.id), class: 'btn btn-sm btn-success edit_book_15819' %>
+              <% end %>
+            </th>
+            <th>
+              <% if @book.user.present? && @book.user.id == current_user.id %>
+                <%= link_to 'Destroy', book_path(@book.id), method: :delete , class: 'btn btn-sm btn-danger destroy_book_15819' %>
+              <% end %>
+
+            </th>
+            <th></th>
+          </tr>
+          <tr>
+            <th>
+               <%= link_to @book.user.name, user_path(@book.user.id) %>
+            </th>
+            <th></th>
+            <th></th>
+            <th colspan="3"></th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

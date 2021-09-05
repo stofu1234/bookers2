@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_29_204222) do
+ActiveRecord::Schema.define(version: 2021_09_01_192440) do
+
+  create_table "books", force: :cascade do |t|
+    t.string "title"
+    t.string "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "profile_image_id"
+    t.integer "user_id"
+  end
 
   create_table "post_images", force: :cascade do |t|
     t.text "shop_name"
@@ -37,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_08_29_204222) do
     t.datetime "remember_created_at"
     t.string "name"
     t.string "introduction"
-    t.integer "profile_image_id"
+    t.text "profile_image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

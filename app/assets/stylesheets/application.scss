@@ -16,3 +16,27 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.table {
+  border-spacing: 2px;
+  border-color: grey;
+}
+
+.form-group {
+  display:flex;
+  flex-flow: column;
+}
+
+a {
+  text-decoration: initial;
+}
+
+#error_explanation {
+  color: red;
+}
